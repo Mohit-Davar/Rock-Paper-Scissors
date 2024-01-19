@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper and Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        Rock Paper Scissors
+    </header>
+    <main>
+        <section class="counter">
+            <span id="user">0</span> : <span id="computer">0</span>
+        </section>
+        <section class="title">
+            You Selected <span id="user-selection">none</span>. Computer Selected <span id="computer-selection">none</span>. <span id="result"></span>
+        </section>
+        <section class="buttons">
+            <div id="rock" class="button"></div>
+            <div id="paper" class="button"></div>
+            <div id="scissor" class="button"></div>
+        </section>
+        <section class="text">
+            make your move
+        </section>
+    </main>
+</body>
+<script>
+
+    let user_result= document.getElementById('user')
+    let computer_result= document.getElementById('computer')
+
+    let user_selection= document.getElementById('user-selection')
+    let computer_selection= document.getElementById('computer-selection')
+    let result= document.getElementById('result')
+
+
+
+
+
+
+
+
+    let buttons= document.querySelectorAll('.button')
+    for(let button of buttons){
+        button.addEventListener('click',game)
+    }
+
+    let win= ["paper-rock","rock-scissor", "scissor-paper"];
+    let lost= ["rock-paper","scissor-rock", "paper-scissor"];
+    let draw= ["paper-paper","rock-rock", "scissor-scissor"];
+
+    let countuser=0;
+    let countcomputer=0;
+
+    let conditions= ["rock","paper","scissor"]
+
+    function game(e){
+    let n= Math.floor(Math.random()*3);
+    let computerinput= conditions[n];
+    let userinput= e.target.id;
+    let combination= `${userinput}-${computerinput}`
+
+    user_selection.textContent=userinput;
+    computer_selection.textContent=computerinput;
+
+    win.forEach((element)=>{
+        if(combination === element){
+            result.textContent="You Won";
+            countuser++;
+            user_result.textContent=countuser
+        }
+    })
+    lost.forEach((element)=>{
+        if(combination === element){
+            result.textContent="You Lost";
+            countcomputer++;
+            computer_result.textContent=countcomputer;
+        }
+    })
+    draw.forEach((element)=>{
+        if(combination === element){
+            result.textContent="Draw";
+        }
+    })
+    }
+</script>
+</html>

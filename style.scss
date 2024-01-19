@@ -1,0 +1,116 @@
+@mixin reset{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+@mixin flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin text{
+    font-family: 'Ubuntu' , sans-serif;
+    color: white;
+    font-size: clamp(1.5rem,3vw,10rem);
+}
+@mixin pseudo{
+    content: "User";
+    position: absolute;
+    top: 25%;
+    width: 20%;
+    height: 50%;
+    background-color: #e2584d;
+
+    font-size: 70%;
+    @include flex;
+}
+@mixin image{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    mix-blend-mode: multiply;
+}
+$pad-block: 25px;
+$font-fam: 'Ubuntu' , sans-serif;
+$font-size: clamp(2rem,4vw,10rem);
+*{
+    @include reset;
+}
+header{
+    width: 100vw;
+    background-color: #ffac16;
+
+    @include flex;
+
+    padding-block: $pad-block;
+    font-family: $font-fam;
+    font-size: $font-size;
+
+    
+    box-shadow: 0px 5px 10px 10px #ffac16;
+
+    color: #ce7e2b;
+}
+main{
+    @include flex;
+    flex-direction: column;
+
+    background-color: #122a33;
+
+    gap: 3rem;
+    padding-block: $pad-block;
+    .counter{
+        @include text;
+        border: 5px solid #ffac16;
+        padding-block: $pad-block;
+        padding-inline: 15vw;
+
+        position: relative;
+
+        &::before{
+            @include pseudo;
+            left: -10%;
+
+        }
+        &::after{
+            @include pseudo;
+            content: "Code";
+            right: -10%;
+            left: none;
+        }
+    }
+    .title{
+        @include text;
+    }
+    .buttons{
+        @include flex;
+        gap: 5vw;
+        .button{
+            width: 15vw;
+            aspect-ratio: 1/1;
+
+            // border: 5px solid white;
+            // border-radius: 50%;
+        }
+        #rock{
+            background-image: url(Images/Rock.png);
+            @include image;
+        }
+        
+        #paper{
+            background-image: url(Images/Paper.png);
+            @include image;
+        }
+        
+        #scissor{
+            background-image: url(Images/Scissors.png);
+            @include image;
+        }
+    }
+    .text{
+        @include text;
+        text-transform: uppercase;
+        font-size: clamp(1rem,2vw,10rem);
+    }
+}

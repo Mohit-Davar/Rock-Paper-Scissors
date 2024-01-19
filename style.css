@@ -1,0 +1,108 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100vw;
+  background-color: #ffac16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 25px;
+  font-family: "Ubuntu", sans-serif;
+  font-size: clamp(2rem, 4vw, 10rem);
+  box-shadow: 0px 5px 10px 10px #ffac16;
+  color: #ce7e2b;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #122a33;
+  gap: 3rem;
+  padding-block: 25px;
+}
+main .counter {
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-size: clamp(1.5rem, 3vw, 10rem);
+  border: 5px solid #ffac16;
+  padding-block: 25px;
+  padding-inline: 15vw;
+  position: relative;
+}
+main .counter::before {
+  content: "User";
+  position: absolute;
+  top: 25%;
+  width: 20%;
+  height: 50%;
+  background-color: #e2584d;
+  font-size: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -10%;
+}
+main .counter::after {
+  content: "User";
+  position: absolute;
+  top: 25%;
+  width: 20%;
+  height: 50%;
+  background-color: #e2584d;
+  font-size: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "Code";
+  right: -10%;
+  left: none;
+}
+main .title {
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-size: clamp(1.5rem, 3vw, 10rem);
+}
+main .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+}
+main .buttons .button {
+  width: 15vw;
+  aspect-ratio: 1/1;
+}
+main .buttons #rock {
+  background-image: url(Images/Rock.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+}
+main .buttons #paper {
+  background-image: url(Images/Paper.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+}
+main .buttons #scissor {
+  background-image: url(Images/Scissors.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: multiply;
+}
+main .text {
+  font-family: "Ubuntu", sans-serif;
+  color: white;
+  font-size: clamp(1.5rem, 3vw, 10rem);
+  text-transform: uppercase;
+  font-size: clamp(1rem, 2vw, 10rem);
+}/*# sourceMappingURL=style.css.map */
